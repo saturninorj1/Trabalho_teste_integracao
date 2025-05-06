@@ -1,29 +1,25 @@
-
 #include <stdio.h>
 
 // Função que retorna o preço do bilhete baseado na idade do visitante
 int calcular_preco_unitario(int idade) {
-    if (idade < 0) {
+    if (idade < 0)
         return -1; // Erro: idade inválida
-    } else if (idade <= 12) {
+    else if (idade <= 12)
         return 10; // Crianças até 12 anos
-    } else if (idade <= 59) {
+    else if (idade <= 59)
         return 30; // Adultos entre 13 e 59 anos
-    } else {
+    else
         return 15; // Idosos com 60 anos ou mais
-    }
 }
 
 // Função que calcula o preço total com base na idade e quantidade
 int calcular_preco_total(int idade, int quantidade) {
-    if (quantidade < 1 || quantidade > 5) {
+    if (quantidade < 1 || quantidade > 5)
         return -2; // Erro: quantidade inválida
-    }
 
     int preco_unitario = calcular_preco_unitario(idade);
-    if (preco_unitario == -1) {
+    if (preco_unitario == -1)
         return -1; // Erro: idade inválida
-    }
 
     return preco_unitario * quantidade;
 }
@@ -50,3 +46,4 @@ int main() {
 
     return 0;
 }
+
