@@ -1,29 +1,21 @@
 name: Teste Automático do Projeto
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Fazer o checkout do código
-      - name: Checkout código
-        uses: actions/checkout@v3
+    - name: Checkout código
+      uses: actions/checkout@v3
 
-      # Instalar dependências para compilar em C
-      - name: Instalar GCC e ferramentas
-        run: sudo apt-get update && sudo apt-get install -y build-essential
+    - name: Instalar GCC e ferramentas
+      run: sudo apt update && sudo apt install -y build-essential
 
-      # Compilar os arquivos C do projeto
-      - name: Compilar o projeto
-        run: gcc testes.c trabalhocarlos.c -o testes
+    - name: Compilar o projeto
+      run: gcc testes.c trabalhocarlos.c -o testes
 
-      # Executar os testes
-      - name: Executar testes
-        run: ./testes
+    - name: Executar testes
+      run: ./testes
 
